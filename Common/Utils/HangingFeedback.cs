@@ -89,7 +89,7 @@ public abstract class HangingFeedback : MonoBehaviour
 		private readonly EventSlot<bool> _onChange = new EventSlot<bool>();
 		
 		EventSlot _onVoid;
-		public IEventRegister OnVoid => _onVoid ??= new EventSlot();
+		public IEventRegister OnVoid => _onVoid = _onVoid ?? new EventSlot();
 
 		public IEventRegister OnTrueState => FakeEvent.Instance;
 		public IEventRegister OnFalseState => _onFalseState;
