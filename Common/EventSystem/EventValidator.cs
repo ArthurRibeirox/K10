@@ -165,11 +165,12 @@ public static class EventValidatorExtentions
 
 	public static IEventTrigger ValidatedVoid( this IVoidableEventValidator validator ) => validator.Validated( validator.Void );
 
-	// public static IEventTrigger<T,K> Validated<T,K>( this IEventValidator validator, Action<T, K> act, UnityEngine.Transform transform ) => new ValidatedEventListener<T, K>( act, CombinedCondition( validator, transform ) );
-	// public static IEventTrigger<T> Validated<T>( this IEventValidator validator, Action<T> act, UnityEngine.Transform transform ) => new ValidatedEventListener<T>( act, CombinedCondition( validator, transform ) );
-	// public static IEventTrigger Validated( this IEventValidator validator, Action act, UnityEngine.Transform transform ) => new ValidatedEventListener( act, CombinedCondition( validator, transform ) );
+    // public static IEventTrigger<T,K> Validated<T,K>( this IEventValidator validator, Action<T, K> act, UnityEngine.Transform transform ) => new ValidatedEventListener<T, K>( act, CombinedCondition( validator, transform ) );
+    // public static IEventTrigger<T> Validated<T>( this IEventValidator validator, Action<T> act, UnityEngine.Transform transform ) => new ValidatedEventListener<T>( act, CombinedCondition( validator, transform ) );
+    // public static IEventTrigger Validated( this IEventValidator validator, Action act, UnityEngine.Transform transform ) => new ValidatedEventListener( act, CombinedCondition( validator, transform ) );
 
-	public static IEventTrigger<T, K> Validated<T, K>( this IEventValidator validator, Action<T, K> act, IEventValidator aditionalValidator ) => new ValidatedEventListener<T, K>( act, validator, aditionalValidator );
+    public static IEventTrigger<T, K, J> Validated<T, K, J>(this IEventValidator validator, Action<T, K, J> act, IEventValidator aditionalValidator) => new ValidatedEventListener<T, K, J>(act, validator, aditionalValidator);
+    public static IEventTrigger<T, K> Validated<T, K>( this IEventValidator validator, Action<T, K> act, IEventValidator aditionalValidator ) => new ValidatedEventListener<T, K>( act, validator, aditionalValidator );
 	public static IEventTrigger<T> Validated<T>( this IEventValidator validator, Action<T> act, IEventValidator aditionalValidator ) => new ValidatedEventListener<T>( act, validator, aditionalValidator );
 	public static IEventTrigger Validated( this IEventValidator validator, Action act, IEventValidator aditionalValidator ) => new ValidatedEventListener( act, validator, aditionalValidator );
 
